@@ -522,7 +522,7 @@ public class PreviewImageFragment extends FileFragment {
                 int minHeight = screenSize.y;
                 for (int i = 0; i < maxDownScale && bitmapResult == null && drawableResult == null; i++) {
 
-                    if (ocFile.getMimetype().equalsIgnoreCase(MIME_TYPE_SVG)) {
+                    if (ocFile.getMimeType().equalsIgnoreCase(MIME_TYPE_SVG)) {
                         if (isCancelled()) {
                             return null;
                         }
@@ -559,7 +559,7 @@ public class PreviewImageFragment extends FileFragment {
                                 Log_OC.e(TAG, "File could not be loaded as a bitmap: " + storagePath);
                                 break;
                             } else {
-                                if (ocFile.getMimetype().equalsIgnoreCase("image/jpeg")) {
+                                if (ocFile.getMimeType().equalsIgnoreCase("image/jpeg")) {
                                     // Rotate image, obeying exif tag.
                                     bitmapResult = BitmapUtils.rotateImage(bitmapResult, storagePath);
                                 }
@@ -627,9 +627,9 @@ public class PreviewImageFragment extends FileFragment {
                             bitmap.getHeight());
                 }
 
-                if (result.ocFile.getMimetype().equalsIgnoreCase(MIME_TYPE_PNG) ||
-                        result.ocFile.getMimetype().equalsIgnoreCase(MIME_TYPE_SVG) ||
-                        result.ocFile.getMimetype().equalsIgnoreCase(MIME_TYPE_GIF)) {
+                if (result.ocFile.getMimeType().equalsIgnoreCase(MIME_TYPE_PNG) ||
+                        result.ocFile.getMimeType().equalsIgnoreCase(MIME_TYPE_SVG) ||
+                        result.ocFile.getMimeType().equalsIgnoreCase(MIME_TYPE_GIF)) {
                     if (getResources() != null) {
                         imageView.setImageDrawable(generateCheckerboardLayeredDrawable(result, bitmap));
                     } else {
@@ -785,8 +785,8 @@ public class PreviewImageFragment extends FileFragment {
 
     private void toggleImageBackground() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && getFile() != null
-                && (getFile().getMimetype().equalsIgnoreCase(MIME_TYPE_PNG) ||
-                getFile().getMimetype().equalsIgnoreCase(MIME_TYPE_SVG)) && getActivity() != null
+                && (getFile().getMimeType().equalsIgnoreCase(MIME_TYPE_PNG) ||
+                getFile().getMimeType().equalsIgnoreCase(MIME_TYPE_SVG)) && getActivity() != null
                 && getActivity() instanceof PreviewImageActivity && getResources() != null) {
             PreviewImageActivity previewImageActivity = (PreviewImageActivity) getActivity();
 
