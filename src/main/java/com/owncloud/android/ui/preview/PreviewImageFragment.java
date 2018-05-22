@@ -143,7 +143,6 @@ public class PreviewImageFragment extends FileFragment {
         return frag;
     }
 
-
     /**
      * Creates an empty fragment for image previews.
      *
@@ -157,10 +156,6 @@ public class PreviewImageFragment extends FileFragment {
         mIgnoreFirstSavedState = false;
     }
 
-
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,12 +169,8 @@ public class PreviewImageFragment extends FileFragment {
         setHasOptionsMenu(true);
     }
 
-
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.preview_image_fragment, container, false);
@@ -222,11 +213,8 @@ public class PreviewImageFragment extends FileFragment {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(PreviewImageFragment.EXTRA_FILE, getFile());
     }
@@ -775,7 +763,9 @@ public class PreviewImageFragment extends FileFragment {
      */
     private void finish() {
         Activity container = getActivity();
-        container.finish();
+        if (container != null) {
+            container.finish();
+        }
     }
 
     private void togglePreviewImageFullScreen() {
